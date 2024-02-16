@@ -283,9 +283,19 @@ class _SleekCircularSliderState extends State<SleekCircularSlider>
     RenderBox renderBox = context.findRenderObject() as RenderBox;
     var position = renderBox.globalToLocal(details);
 
+
+    final double touchWidth = widget.appearance.progressBarWidth >= 25.0
+        ? widget.appearance.progressBarWidth
+        : 25.0;
+    //adding necessary margins
+    // double angleMargin = 7.0;
+    angleMargin = asin(touchWidth/_painter!.radius);
+
+
+
     final angleWithinRange = isAngleWithinRange(
-        startAngle: _startAngle,
-        angleRange: _angleRange,
+        startAngle: _startAngle - angleMargin,
+        angleRange: _angleRange + 2 * angleMargin,
         touchAngle: coordinatesToRadians(_painter!.center!, position),
         previousAngle: _currentAngle,
         counterClockwise: widget.appearance.counterClockwise);
@@ -293,9 +303,6 @@ class _SleekCircularSliderState extends State<SleekCircularSlider>
       return false;
     }
 
-    final double touchWidth = widget.appearance.progressBarWidth >= 25.0
-        ? widget.appearance.progressBarWidth
-        : 25.0;
 
     if (isPointAlongCircle(
         position, _painter!.center!, _painter!.radius, touchWidth)) {
