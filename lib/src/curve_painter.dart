@@ -105,7 +105,7 @@ class _CurvePainter extends CustomPainter {
         ..color = Colors.black.withOpacity(0.3)
         ..maskFilter = MaskFilter.blur(BlurStyle.normal, 50);
 
-    canvas.drawCircle(handler, appearance.handlerSize, shadowPaint);
+    canvas.drawCircle(handler, appearance.handlerSize + 10, shadowPaint);
 
 
     //Adding shadow to handler
