@@ -104,7 +104,7 @@ class _CurvePainter extends CustomPainter {
     
     //Adding shadow to handler
     Path shadowPath = Path()..addOval(Rect.fromCircle(center: handler, radius: appearance.handlerSize));
-    canvas.drawShadow(shadowPath, Colors.black, 8.0, false);
+    canvas.drawShadow(shadowPath, Colors.black, 3.0, false);
 
 
 
