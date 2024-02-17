@@ -288,8 +288,8 @@ class _SleekCircularSliderState extends State<SleekCircularSlider>
         ? widget.appearance.progressBarWidth
         : 25.0;
     //adding necessary margins
-    double angleMargin = 7.0;
-    // angleMargin = asin(touchWidth/_painter!.radius);
+    // double angleMargin = 7.0;
+    double angleMargin = math.asin(touchWidth/_painter!.radius) * 180.0 / math.pi;
 
 
 

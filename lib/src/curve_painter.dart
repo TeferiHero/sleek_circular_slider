@@ -100,12 +100,16 @@ class _CurvePainter extends CustomPainter {
 
     Offset handler = degreesToCoordinates(
         center!, -math.pi / 2 + startAngle + currentAngle + 1.5, radius);
-    canvas.drawCircle(handler, appearance.handlerSize, dotPaint);
 
-
+    
     //Adding shadow to handler
     Path shadowPath = Path()..addOval(Rect.fromCircle(center: handler, radius: appearance.handlerSize));
     canvas.drawShadow(shadowPath, Colors.black, 8.0, false);
+
+
+
+    canvas.drawCircle(handler, appearance.handlerSize, dotPaint);
+
 
 
   }
